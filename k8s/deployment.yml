@@ -1,24 +1,19 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: emal
-  labels: 
-     app: app
-
+  name: nginx-deployment
 spec:
-  replicas: 2 
+  replicas: 2
   selector:
     matchLabels:
-      app: app
-
+      app: nginx
   template:
     metadata:
       labels:
-        app: app
+        app: nginx
     spec:
       containers:
-      - name: app
+      - name: nginx
         image: 324037301009.dkr.ecr.ap-southeast-1.amazonaws.com/charanecr:github.sha
-        imagePullPolicy: Always
         ports:
         - containerPort: 8080
